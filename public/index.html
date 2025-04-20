@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Access Point</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Audio Access Point</h1>
+            <p>Process, convert, and manage audio with ease</p>
+        </header>
+
+        <div class="main-content">
+            <div class="feature-cards">
+                <div class="card" id="transcription-card">
+                    <div class="card-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h2>Audio to Text</h2>
+                    <p>Convert speech to text with our advanced transcription service</p>
+                    <button class="select-btn" data-feature="transcription">Select</button>
+                </div>
+                
+                <div class="card" id="tts-card">
+                    <div class="card-icon"><i class="fas fa-volume-up"></i></div>
+                    <h2>Text to Speech</h2>
+                    <p>Convert your text into natural-sounding speech</p>
+                    <button class="select-btn" data-feature="tts">Select</button>
+                </div>
+            </div>
+
+            <div class="feature-forms">
+                <!-- Audio to Text Form -->
+                <div class="feature-form" id="transcription-form">
+                    <h2>Audio to Text</h2>
+                    <form id="audio-to-text-form">
+                        <div class="form-group">
+                            <label for="audio-file">Upload Audio File</label>
+                            <input type="file" id="audio-file" accept="audio/*" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="language-code">Language (Optional)</label>
+                            <select id="language-code">
+                                <option value="en-US">English (US)</option>
+                                <option value="fr-FR">French</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="de-DE">German</option>
+                                <option value="ja-JP">Japanese</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="account-nft-transcription">Account NFT</label>
+                            <input type="text" id="account-nft-transcription" placeholder="Enter your account NFT" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Transcribe</button>
+                    </form>
+                    <div class="result-container" id="transcription-result">
+                        <h3>Transcription Result</h3>
+                        <div class="result-content"></div>
+                        <button class="download-btn" id="download-transcription" style="display: none;">Download</button>
+                    </div>
+                </div>
+
+                <!-- Text to Speech Form -->
+                <div class="feature-form" id="tts-form">
+                    <h2>Text to Speech</h2>
+                    <form id="text-to-speech-form">
+                        <div class="form-group">
+                            <label for="tts-text">Text to Convert</label>
+                            <textarea id="tts-text" rows="5" required placeholder="Enter the text you want to convert to speech..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="voice-selection">Voice</label>
+                            <select id="voice-selection">
+                                <option value="en-US-Standard-A">US English, Female (A)</option>
+                                <option value="en-US-Standard-B">US English, Male (B)</option>
+                                <option value="en-US-Standard-C">US English, Female (C)</option>
+                                <option value="en-US-Standard-D">US English, Male (D)</option>
+                                <option value="en-US-Standard-E">US English, Female (E)</option>
+                                <option value="en-US-Standard-F">US English, Female (F)</option>
+                                <option value="en-US-Standard-G">US English, Female (G)</option>
+                                <option value="en-US-Standard-H">US English, Female (H)</option>
+                                <option value="en-US-Standard-I">US English, Male (I)</option>
+                                <option value="fr-FR-Standard-A">French, Female</option>
+                                <option value="es-ES-Standard-A">Spanish, Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="account-nft-tts">Account NFT</label>
+                            <input type="text" id="account-nft-tts" placeholder="Enter your account NFT" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Generate Speech</button>
+                    </form>
+                    <div class="result-container" id="tts-result">
+                        <h3>Generated Audio</h3>
+                        <audio id="audio-player" controls style="display: none;"></audio>
+                        <button class="download-btn" id="download-speech" style="display: none;">Download</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Audio Access Point. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
