@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Audio Processing</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-time Audio Processing</h1>
+            <p>Convert between speech and text instantly</p>
+        </header>
+
+        <div class="main-content">
+            <div class="feature-cards">
+                <div class="card" id="realtime-stt-card">
+                    <div class="card-icon"><i class="fas fa-headset"></i></div>
+                    <h2>Real-time Speech-to-Text</h2>
+                    <p>Live transcription of your speech as you speak</p>
+                    <button class="select-btn" data-feature="realtime-stt">Select</button>
+                </div>
+                
+                <div class="card" id="realtime-tts-card">
+                    <div class="card-icon"><i class="fas fa-comment-alt"></i></div>
+                    <h2>Real-time Text-to-Speech</h2>
+                    <p>Instant conversion of your text to speech</p>
+                    <button class="select-btn" data-feature="realtime-tts">Select</button>
+                </div>
+            </div>
+
+            <div class="feature-forms">                
+                <!-- Real-time Speech to Text Form -->
+                <div class="feature-form" id="realtime-stt-form">
+                    <h2>Real-time Speech-to-Text</h2>
+                    <div class="recording-interface">
+                        <div class="form-group">
+                            <label for="realtime-language-code">Language</label>
+                            <select id="realtime-language-code">
+                                <option value="en-US">English (US)</option>
+                                <option value="fr-FR">French</option>
+                                <option value="es-ES">Spanish</option>
+                                <option value="de-DE">German</option>
+                                <option value="ja-JP">Japanese</option>
+                                <option value="zh-CN">Chinese (Simplified)</option>
+                            </select>
+                        </div>
+                        <div class="recording-controls">
+                            <button id="start-recording" class="control-btn">
+                                <i class="fas fa-microphone"></i> Start Recording
+                            </button>
+                            <button id="stop-recording" class="control-btn" disabled>
+                                <i class="fas fa-stop-circle"></i> Stop Recording
+                            </button>
+                            <button id="clear-transcription" class="control-btn">
+                                <i class="fas fa-trash"></i> Clear Text
+                            </button>
+                        </div>
+                        <div class="recording-status">
+                            <div id="status-indicator"></div>
+                            <span id="status-text">Ready to record</span>
+                        </div>
+                    </div>
+                    <div class="result-container active">
+                        <h3>Live Transcription</h3>
+                        <div id="live-transcription" class="live-transcription">
+                            <p class="placeholder">Your transcription will appear here as you speak...</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn" id="download-live-transcription" style="display: none;">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="action-btn" id="copy-transcription" style="display: none;">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Real-time Text to Speech Form -->
+                <div class="feature-form" id="realtime-tts-form">
+                    <h2>Real-time Text-to-Speech</h2>
+                    <div class="realtime-tts-interface">
+                        <div class="form-group">
+                            <label for="realtime-tts-text">Type text to speak</label>
+                            <textarea id="realtime-tts-text" rows="4" placeholder="Type text here and press 'Speak' to hear it instantly..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="realtime-voice-selection">Voice</label>
+                            <select id="realtime-voice-selection">
+                                <option value="en-US-Standard-A">US English, Female (A)</option>
+                                <option value="en-US-Standard-B">US English, Male (B)</option>
+                                <option value="en-US-Standard-C">US English, Female (C)</option>
+                                <option value="en-US-Standard-D">US English, Male (D)</option>
+                                <option value="en-US-Standard-E">US English, Female (E)</option>
+                                <option value="fr-FR-Standard-A">French, Female</option>
+                                <option value="es-ES-Standard-A">Spanish, Female</option>
+                            </select>
+                        </div>
+                        <div class="tts-controls">
+                            <button id="speak-text" class="control-btn primary">
+                                <i class="fas fa-play"></i> Speak
+                            </button>
+                            <button id="clear-tts-text" class="control-btn">
+                                <i class="fas fa-trash"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                    <div class="result-container active">
+                        <h3>Audio Player</h3>
+                        <audio id="realtime-audio-player" controls></audio>
+                        <div class="history-container">
+                            <div class="history-header">
+                                <h4>Speech History</h4>
+                                <button id="clear-history" class="clear-btn">
+                                    <i class="fas fa-trash-alt"></i> Clear History
+                                </button>
+                            </div>
+                            <div id="speech-history" class="speech-history"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="loader" id="loader">
+            <div class="spinner"></div>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Real-time Audio Processing. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
